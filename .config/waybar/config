@@ -1,0 +1,95 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 31,
+	"fixed-center": true,
+	"modules-left": ["custom/launcher", "hyprland/workspaces"],
+	"modules-center": ["hyprland/window"],
+	"modules-right": ["tray", "custom/notifications", "battery", "backlight", "pulseaudio", "network", "clock", "custom/quit"],
+    
+	"custom/launcher": {
+		"format": "󱓟",
+		"on-click": "wofi --show drun"
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"1": "",
+			"2": "󰊯",
+			"3": "",
+			"4": "󰍥",
+			"5": "󰲩",
+			"6": "󰲫",
+			"7": "󰲭",
+			"8": "󰲯",
+			"9": "󰲱",
+			"0": "󰿭"
+		},
+		"persistent_workspaces": {
+			"*": 4
+		}
+	},
+
+	"hyprland/window": {},
+
+	"tray": {
+		"spacing": 5,
+		"icon-size": 20
+	},
+	"custom/notifications": {
+		"exec": "if dunstctl is-paused | grep -q 'false' ; then echo ' dunst'; else echo '<s> dunst</s>'; fi",
+		"on-click": "dunstctl set-paused toggle",
+		"on-click-right": "dunstctl history-pop",
+		"restart-interval": 0,
+	},
+	"battery": {
+		"format": "{icon} {capacity}%",
+		"format-alt": "{icon} {time}",
+		"format-charging": "󱐋 {capacity}%",
+		"format-icons": ["", "", "", "", ""],
+		"format-time": "{H}h {M}min"
+	},
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": ["󱃓", "󰪟", "󰪡", "󰪣", "󰪥"],
+		"tooltip": false
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "<s>{icon} {volume}%</s>",
+		"format-icons": {
+			"headphone": "",
+			"default": ["", "", ""]
+		},
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol"
+	},
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": " {bandwidthTotalBytes}",
+		"format-ethernet": " {bandwidthTotalBytes}",
+		"format-disconnected": " {bandwidthTotalBytes}",
+		"tooltip-format-wifi": "{essid} {signalStrength}%",
+		"tooltip-format-ethernet": "{ipaddr}/{cidr}",
+		"tooltip-format-disconnected": "Disconnected",
+		"on-click": "nm-connection-editor"
+	},
+	"clock": {
+		"format": "{:%H:%M}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "left",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#d3d3d3'>{}</span>",
+				"weeks": "<span color='#99ffdd'>[{}]</span>",
+				"weekdays": "<span color='#FF7276'>{}</span>",
+				"today": "<span color='#ff0000'><b>{}</b></span>"
+			}
+		}
+	}
+}

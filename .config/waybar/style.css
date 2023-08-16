@@ -1,0 +1,65 @@
+@define-color primary #023d40;
+
+* {
+	font-family: Font Awesome, sans-serif;
+	font-size: 18px;
+}
+
+#workspaces button:hover,
+window#waybar {
+	background-color: transparent;
+}
+
+window#waybar > * {
+	padding-top: 5px;
+}
+
+.modules-left {
+	border-radius: 15px;
+	margin-left: 10px;
+	background: linear-gradient(45deg, #400000, #000000, #400000, #000000);
+}
+
+.modules-right {
+	border-radius: 15px;
+	margin-right: 10px;
+	background-color: @primary;
+}
+
+#custom-launcher {
+	margin-right: 1px;
+	padding: 0px 10px;
+	background-color: @primary;
+	border-radius: 15px;
+}
+
+#workspaces * {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#workspaces * {
+	border-radius: 15px;
+}
+
+#workspaces button.active,
+#workspaces button.active:hover {
+	background-color: @primary;
+}
+
+#window {
+	padding: 0px 20px;
+	border-radius: 15px;
+	background-color: @primary;
+}
+
+#tray,
+#custom-notifications,
+#battery,
+#backlight,
+#pulseaudio,
+#network,
+#clock {
+	margin-left: 1px;
+	padding: 0px 10px;
+}
