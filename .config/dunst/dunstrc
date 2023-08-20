@@ -1,0 +1,15 @@
+
+[global]
+    monitor = 0
+
+    offset = 10x5
+
+    separator_height = 1
+    frame_width = 2
+    frame_color = "#07CED9"
+
+    font = Hack 8
+
+    history_length = 100
+
+    corner_radius = 5
