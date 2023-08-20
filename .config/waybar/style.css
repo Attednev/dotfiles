@@ -1,4 +1,5 @@
 @define-color primary #023d40;
+@define-color secondary #bad9db;
 
 * {
 	font-family: Font Awesome, sans-serif;
@@ -17,7 +18,7 @@ window#waybar > * {
 .modules-left {
 	border-radius: 15px;
 	margin-left: 10px;
-	background-color: #bad9db;
+	background: linear-gradient(0deg, @primary 0%, @secondary 15%, @secondary 85%, @primary 100%);
 }
 
 .modules-right {
