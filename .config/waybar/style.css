@@ -17,7 +17,7 @@ window#waybar > * {
 .modules-left {
 	border-radius: 15px;
 	margin-left: 10px;
-	background: linear-gradient(45deg, #400000, #000000, #400000, #000000);
+	background-color: #bad9db;
 }
 
 .modules-right {
@@ -42,9 +42,14 @@ window#waybar > * {
 	border-radius: 15px;
 }
 
+#workspaces button {
+	color: black;
+}
+
 #workspaces button.active,
 #workspaces button.active:hover {
 	background-color: @primary;
+	color: white;
 }
 
 #window {
