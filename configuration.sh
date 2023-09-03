@@ -8,8 +8,8 @@ echo "> Starting configuration"
 
 echo "> Creating backup"
 cd $HOME
-cp .config .config-$TIME
-cp .local .local-$TIME
+cp -r .config .config-$TIME
+cp -r .local .local-$TIME
 echo "> Finished"
 
 echo "> Copying files"
