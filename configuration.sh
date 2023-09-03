@@ -13,8 +13,8 @@ cp -r .local .local-$TIME
 echo "> Finished"
 
 echo "> Copying files"
-cp -r $CWD/.config $HOME/.config
-cp -r $CWD/.local $HOME/.local
+cp -r $CWD/.config $HOME
+cp -r $CWD/.local $HOME
 echo "> Finished"
 
 echo "> Linking background-images"
