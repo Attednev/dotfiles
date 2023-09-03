@@ -2,8 +2,10 @@
 @define-color secondary #bad9db;
 
 * {
+	all: unset;
 	font-family: Font Awesome, sans-serif;
 	font-size: 18px;
+	color: white;
 }
 
 #workspaces button:hover,
@@ -45,10 +47,14 @@ window#waybar > * {
 
 #workspaces button {
 	color: black;
+	padding: 0 10px;
 }
 
-#workspaces button.active,
-#workspaces button.active:hover {
+#workspaces button:not(.active) {
+	color: black;
+}
+
+#workspaces button.active {
 	background-color: @primary;
 	color: white;
 }
