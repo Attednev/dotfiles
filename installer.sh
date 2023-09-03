@@ -1,41 +1,23 @@
 #!/bin/bash
 
 CWD=$(pwd)
+USER=$(whoami)
 
-# Copy all dotfiles
-# TODO
+echo "> Starting installation"
 
-# Link wallpaper folder
-sudo rm -r /usr/share/wallpapers
-sudo ln -s $HOME/.local/share/background-images/ /usr/share/wallpapers
+echo "> Installing all required packages"
+sudo pacman -Syy --noconfirm gtk3 kitty xdg-desktop-portal-hyprland dunst qt5-wayland
+qt6-wayland hyprpaper swaylock pavucontrol lxappearance thunar brightnessctl pulseaudio network-manager-applet ttf-font-awesome fish qr5ct fisher sddm 
+echo "> Finished"
 
-# Change shell to fish
-chsh -s /bin/fish
+echo "> Installing yay"
+cd /opt
+sudo git clone https://aur.archlinux.org/yay-git.git
+sudo chown -r $USER:$USER yay-git
+cd yay-git
+makepkg -si --noconfirm
+echo "> Finished"
 
-# Install Mousepad dracula theme
-cd /tmp
-git clone https://github.com/dracula/mousepad.git
-cd mousepad
-mkdir -p $HOME/.local/share/gtksourceview-4/styles
-cp dracula.xml $HOME/.local/share/gtksourceview-4/styles
-
-# Set Mousepad settings
-mkdir -p $HOME/.local/share/Mousepad
-config="$CWD/.local/share/Mousepad/mousepad.conf"
-while IFS= read -r line; do
-	gsettings set $line
-done < $config
-
-# Install dracula gtk theme
-mkdir -p $HOME/.themes/
-cd $HOME/.themes
-git clone https://github.com/dracula/gtk.git
-gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
-gsettings set org.gnome.desktop.wm.preferences theme 'Dracula'
-
-# Install dracula fish theme
-fisher install dracula/fish
-
-# Install dracula qt5 theme
-mkdir -p $HOME/.config/qt5ct/colors
-curl https://raw.githubusercontent.com/dracula/qt5/master/Dracula.conf > $HOME/.config/qt5ct/colors/Dracula.conf
+echo "> Installing AUR packages"
+yay -Syy --noconfirm hyprland-git waybar-hyprland-git
+echo "> Finished"
