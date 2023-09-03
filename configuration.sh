@@ -29,7 +29,7 @@ echo "> Finished"
 echo "> Changing GTK theme"
 mkdir -p $HOME/.themes/
 cd $HOME/.themes
-git clone https://github.com/dracula/gtk.git
+git clone https://github.com/dracula/gtk.git Dracula
 gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 gsettings set org.gnome.desktop.wm.preferences theme 'Dracula'
 echo "> Finsihed"
