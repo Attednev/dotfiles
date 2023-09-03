@@ -46,17 +46,15 @@ window#waybar > * {
 }
 
 #workspaces button {
-	color: black;
 	padding: 0 10px;
 }
 
-#workspaces button:not(.active) {
+#workspaces button:not(.active) label {
 	color: black;
 }
 
 #workspaces button.active {
 	background-color: @primary;
-	color: white;
 }
 
 #window {
