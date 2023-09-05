@@ -110,6 +110,7 @@ Rectangle {
 					hoverColor: "transparent"
 					textColor: "white"
 					text: userModel.lastUser
+					font.pixelSize: 20
 					height: parent.height
 					width: parent.width - lbName.width - anchors.leftMargin - lbName.anchors.leftMargin
 
