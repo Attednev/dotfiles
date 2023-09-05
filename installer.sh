@@ -5,7 +5,7 @@ USER=$(whoami)
 echo "> Starting installation"
 
 echo "> Installing all required packages"
-sudo pacman -Syy --noconfirm gtk3 kitty xdg-desktop-portal-hyprland dunst qt5-wayland qt6-wayland hyprpaper pavucontrol lxappearance thunar brightnessctl pulseaudio network-manager-applet ttf-font-awesome fish qt5ct fisher sddm wofi mpv grim slurp xclip qt-graphicaleffects curl
+sudo pacman -Syy --noconfirm gtk3 kitty xdg-desktop-portal-hyprland dunst qt5-wayland qt6-wayland hyprpaper pavucontrol lxappearance thunar brightnessctl pulseaudio network-manager-applet ttf-font-awesome fish qt5ct fisher sddm wofi mpv grim slurp xclip qt5-graphicaleffects curl
 echo "> Finished"
 
 echo "> Installing yay"
