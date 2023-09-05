@@ -1,0 +1,38 @@
+swaylock \
+--screenshots \
+--clock \
+--timestr "%H:%M:%S" \
+--datestr "%A, %d.%m.%Y" \
+--indicator-idle-visible \
+--indicator-radius 150 \
+--indicator-thickness 10 \
+--inside-color 00000000 \
+--inside-clear-color 00000000 \
+--inside-caps-lock-color 00000000 \
+--inside-ver-color 00000000 \
+--inside-wrong-color 00000000 \
+--ring-color 3871F5FF \
+--ring-clear-color 3871F5FF \
+--ring-caps-lock-color 3871F5FF \
+--ring-ver-color C26819FF \
+--ring-wrong-color FF0000FF \
+--key-hl-color 2D59C2FF \
+--bs-hl-color C26819FF \
+--caps-lock-key-hl-color 2D59C2FF \
+--caps-lock-bs-hl-color C26819FF \
+--layout-bg-color 00000000 \
+--layout-border-color 00000000 \
+--layout-text-color 00000000 \
+--line-color 000000FF \
+--line-clear-color 000000FF \
+--line-caps-lock-color 000000FF \
+--line-ver-color 000000FF \
+--line-wrong-color 000000FF \
+--separator-color 000000FF \
+--text-color FFFFFFFF \
+--text-clear-color FFFFFFFF \
+--text-caps-lock-color FFFFFFFF \
+--text-ver-color FFFFFFFF \
+--text-wrong-color FFFFFFFF \
+--effect-blur 7x5 \
+--effect-vignette 0.5:0.5
