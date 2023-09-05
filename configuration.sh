@@ -2,6 +2,7 @@
 
 CWD=$(pwd)
 TIME=$(date +%Y.%m.%d-%H.%M.%S)
+SDDMIMAGE="https://r4.wallpaperflare.com/wallpaper/264/666/478/3-316-16-9-aspect-ratio-s-sfw-wallpaper-7910883d41aafdcb36f7487fb0f1964d.jpg"
 
 echo "> Starting configuration"
 
@@ -14,6 +15,7 @@ echo "> Finished"
 echo "> Changing sddm theme"
 sudo cp "$CWD"/etc/sddm.conf /etc/sddm.conf
 sudo cp -r "$CWD"/usr /usr
+curl "$SDDMIMAGE" | sudo tee /usr/share/sddm/themes/custom/background.jpg
 echo "> Finished"
 
 echo "> Copying files"
@@ -36,7 +38,7 @@ cd "$HOME"/.themes || exit
 git clone https://github.com/dracula/gtk.git Dracula
 gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 gsettings set org.gnome.desktop.wm.preferences theme 'Dracula'
-echo "> Finsihed"
+echo "> Finished"
 
 echo "> Changing fish theme"
 fisher install dracula/fish
