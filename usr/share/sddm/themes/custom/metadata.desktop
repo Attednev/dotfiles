@@ -1,0 +1,6 @@
+[SddmGreeterTheme]
+Name=Custom
+Description=Custom Theme
+Author=Attednev
+Type=sddm-theme
+Version=0.1
