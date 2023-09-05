@@ -14,7 +14,7 @@ echo "> Finished"
 
 echo "> Changing sddm theme"
 sudo cp "$CWD"/etc/sddm.conf /etc/sddm.conf
-sudo cp -r "$CWD"/usr /usr
+sudo cp -r "$CWD"/usr /
 curl "$SDDMIMAGE" | sudo tee /usr/share/sddm/themes/custom/background.jpg
 echo "> Finished"
 
