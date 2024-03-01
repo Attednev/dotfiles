@@ -1,7 +1,7 @@
 #!/bin/bash
 
 installation_path=$(pwd)
-themes_path=/home/$USER/.themes
+themes_path="/home/$USER/.themes"
 
 mkdir -p themes_path
 
@@ -9,6 +9,9 @@ mkdir -p themes_path
 sudo pacman -S --noconfirm foot papirus-icon-theme chromium git base-devel ufw discord timeshift noto-fonts-emoji ttf-nerd-fonts-symbols stow
 
 # Stow
+rm .config/kglobalshortcutsrc
+rm .config/plasma-org.kde.plasma.desktop-appletsrc
+rm .gtkrc-2.0
 stow .
 
 # Install sddm theme
