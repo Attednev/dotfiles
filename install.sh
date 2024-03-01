@@ -6,13 +6,13 @@ themes_path="/home/$USER/.themes"
 mkdir -p themes_path
 
 # Install needed packages
-sudo pacman -S --noconfirm foot papirus-icon-theme chromium git base-devel ufw discord timeshift noto-fonts-emoji ttf-nerd-fonts-symbols stow
+sudo pacman -S --noconfirm foot papirus-icon-theme chromium git base-devel ufw discord timeshift noto-fonts-emoji ttf-nerd-fonts-symbols
 
-# Stow
-rm .config/kglobalshortcutsrc
-rm .config/plasma-org.kde.plasma.desktop-appletsrc
-rm .gtkrc-2.0
-stow .
+# Link files
+files=(".config/fish/config.fish" ".config/foot/foot.ini" ".config/kglobalshortcutsrc" ".config/plasma-org.kde.plasma.desktop-appletsrc" ".gtkrc-2.0")
+for f in ${files[@]}; do
+	ln -s $installation_path/$f ~/$f
+done
 
 # Install sddm theme
 cd themes_path
