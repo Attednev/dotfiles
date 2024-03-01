@@ -3,7 +3,7 @@
 installation_path=$(pwd)
 themes_path="/home/$USER/.themes"
 
-mkdir -p themes_path
+mkdir -p $themes_path
 
 # Install needed packages
 sudo pacman -S --noconfirm foot fish papirus-icon-theme chromium git base-devel ufw discord timeshift noto-fonts-emoji ttf-nerd-fonts-symbols
@@ -17,14 +17,16 @@ for f in ${files[@]}; do
 done
 
 # Install sddm theme
-cd themes_path
+cd $themes_path
 git clone https://github.com/catppuccin/sddm catppuccin-sddm
-sudo cp -r /opt/catppuccin-sddm/src/catppuccin-mocha /usr/share/sddm/themes/catppuccin-mocha
-sudo sed -i 's/^Current=.*/Current=catppuccin-mocha/' /etc/sddm.conf.d/kde_settings.conf
-sudo systemctl restart sddm
+sddm --example-config | sudo tee /etc/sddm.conf
+sudo systemctl stop sddm
+sudo cp -r $themes_path/catppuccin-sddm/src/catppuccin-mocha /usr/share/sddm/themes/catppuccin-mocha
+sudo sed -i 's/^Current=.*/Current=catppuccin-mocha/' /etc/sddm.conf
+sudo systemctl start sddm
 
 # Install grub theme
-cd /themes_path
+cd $themes_path
 git clone https://github.com/vinceliuice/grub2-themes grub-theme
 cd grub-theme
 sudo ./install.sh -b -t vimix
@@ -43,21 +45,24 @@ cd yay
 makepkg -si --noconfirm
 
 # Install kde theme
-cd themes_path
+cd $themes_path
 git clone --depth=1 https://github.com/catppuccin/kde catppuccin-kde
-./catppuccin-kde/install < $installation_path/catppuccin-kde-options
-/usr/lib/plasma-apply-colorscheme CatppuccinMochaBlue
+./catppuccin-kde/install.sh < $installation_path/catppuccin-kde-options
+cd /usr/lib
+plasma-apply-colorscheme CatppuccinMochaBlue
 
 # Set icon theme
-/usr/lib/plasma-changeicons Papirus-Dark
+cd /usr/lib
+plasma-changeicons Papirus-Dark
 
 # Install cursor, gtk and additional folder theme, as well as betterdiscord installer
 yay -S --noconfirm catppuccin-cursors-mocha catppuccin-gtk-theme-mocha papirus-folders-catppuccin-git betterdiscord-installer
-/usr/lib/plasma-apply-cursortheme Catppuccin-Mocha-Light-Cursors
+cd /usr/lib
+plasma-apply-cursortheme Catppuccin-Mocha-Light-Cursors
 papirus-folders -C cat-mocha-blue
 
 # Install foot theme
-cd themes_path
+cd $themes_path
 git clone https://github.com/catppuccin/foot catppuccin-foot
 echo -e "\n[main]\ninclude=$HOME/catppuccin-foot/catppuccin-mocha.ini" >> ~/.config/foot/foot.ini
 
