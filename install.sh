@@ -86,6 +86,5 @@ kwriteconfig5 --file kdeglobals --group General --key TerminalApplication foot
 kwriteconfig5 --file kdeglobals --group General --key TerminalService org.codeberg.dnkl.foot.desktop
 
 # Setup betterdiscord and install theme
-betterdiscord-installer
+mkdir -p ~/.config/BetterDiscord/themes
 curl https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css | tee ~/.config/BetterDiscord/themes/mocha.theme.css
-# Betterdiscord installer not executed (due to terminal)
