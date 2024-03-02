@@ -45,19 +45,16 @@ git clone https://aur.archlinux.org/yay.git yay
 cd yay
 makepkg -si --noconfirm
 
-# Update foot theme
-kwriteconfig5 --file foot/foot.ini --group main --key include $themes_path/catppuccin-foot/catppuccin-mocha.ini
-
 # Install kde theme
 cd $themes_path
 git clone --depth=1 https://github.com/catppuccin/kde catppuccin-kde
-./catppuccin-kde/install.sh < $installation_path/catppuccin-kde-options
+cd catppuccin-kde
+./install.sh < $installation_path/catppuccin-kde-options
 cd /usr/lib
 plasma-apply-colorscheme CatppuccinMochaBlue
 
 # Set icon theme
-cd /usr/lib
-plasma-changeicons Papirus-Dark
+/usr/lib/plasma-changeicons Papirus-Dark
 
 # Install cursor, gtk and additional folder theme, as well as betterdiscord installer
 yay -S --noconfirm catppuccin-cursors-mocha catppuccin-gtk-theme-mocha papirus-folders-catppuccin-git betterdiscord-installer
@@ -68,7 +65,7 @@ papirus-folders -C cat-mocha-blue
 # Install foot theme
 cd $themes_path
 git clone https://github.com/catppuccin/foot catppuccin-foot
-echo -e "\n[main]\ninclude=$HOME/catppuccin-foot/catppuccin-mocha.ini" >> ~/.config/foot/foot.ini
+kwriteconfig5 --file foot/foot.ini --group main --key include $themes_path/catppuccin-foot/catppuccin-mocha.ini
 
 # Set virtual desktops (number and names)
 kwriteconfig5 --file kwinrc --group Desktops --key Number 4
