@@ -15,6 +15,7 @@ files=(".config/fish/config.fish" ".config/foot/foot.ini" ".config/kglobalshortc
 for f in ${files[@]}; do
 	ln -sf $installation_path/$f ~/$f
 done
+# Taskbar height is wrong
 
 # Install sddm theme
 cd $themes_path
@@ -23,7 +24,7 @@ sddm --example-config | sudo tee /etc/sddm.conf
 sudo systemctl stop sddm
 sudo cp -r $themes_path/catppuccin-sddm/src/catppuccin-mocha /usr/share/sddm/themes/catppuccin-mocha
 sudo sed -i 's/^Current=.*/Current=catppuccin-mocha/' /etc/sddm.conf
-sudo systemctl start sddm
+#sudo systemctl start sddm
 
 # Install grub theme
 cd $themes_path
@@ -43,6 +44,9 @@ cd ~
 git clone https://aur.archlinux.org/yay.git yay
 cd yay
 makepkg -si --noconfirm
+
+# Update foot theme
+kwriteconfig5 --file foot/foot.ini --group main --key include $themes_path/catppuccin-foot/catppuccin-mocha.ini
 
 # Install kde theme
 cd $themes_path
@@ -87,3 +91,4 @@ kwriteconfig5 --file kdeglobals --group General --key TerminalService org.codebe
 # Setup betterdiscord and install theme
 betterdiscord-installer
 curl https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css | tee ~/.config/BetterDiscord/themes/mocha.theme.css
+# Betterdiscord installer not executed (due to terminal)
