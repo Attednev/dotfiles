@@ -15,7 +15,6 @@ files=(".config/fish/config.fish" ".config/foot/foot.ini" ".config/kglobalshortc
 for f in ${files[@]}; do
 	ln -sf $installation_path/$f ~/$f
 done
-# Taskbar height is wrong
 
 # Install sddm theme
 cd $themes_path
@@ -24,7 +23,6 @@ sddm --example-config | sudo tee /etc/sddm.conf
 sudo systemctl stop sddm
 sudo cp -r $themes_path/catppuccin-sddm/src/catppuccin-mocha /usr/share/sddm/themes/catppuccin-mocha
 sudo sed -i 's/^Current=.*/Current=catppuccin-mocha/' /etc/sddm.conf
-#sudo systemctl start sddm
 
 # Install grub theme
 cd $themes_path
